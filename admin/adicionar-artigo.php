@@ -2,14 +2,14 @@
 
 require '../config.php';
 require '../src/Artigos.php';
+require '../src/redireciona.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artigo = new Artigo($mysql);
     $artigo->adicionar($_POST['titulo'], $_POST['conteudo']);
 
-    //redireciona para a pagina (interromper o POST)
-    header('Location: adicionar-artigo.php');
-    die();
+    //redireciona para a pagina (interromper o POST)    
+    redireciona('/blog/admin/index.php');
 }
 
 ?>
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea class="campo-form" type="text" name="conteudo" id="conteudo"></textarea>
             </p>
             <p>
-                <a class="botao botao-block" href="index.html">Voltar</a>
+                <a class="botao botao-block" href="index.php">Voltar</a>
                 <button class="botao">Criar Artigo</button>
             </p>
         </form>

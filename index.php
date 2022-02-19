@@ -1,7 +1,7 @@
 <?php
 
-require 'config.php'; // programa não funciona
-include 'src/Artigos.php'; // programa funciona parcial
+require 'config.php';
+include 'src/Artigos.php';
 
 $artigo = new Artigo($mysql);
 $artigos = $artigo->exibirTodos();
@@ -28,7 +28,7 @@ $artigos = $artigo->exibirTodos();
                 </a>
             </h2>
             <p>
-                <?php echo $artigo['conteudo'] ?>
+                <?php echo nl2br($artigo['conteudo']) ?>
             </p>
         <?php endforeach; ?>
 
